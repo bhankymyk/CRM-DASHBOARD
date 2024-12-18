@@ -1,25 +1,25 @@
 "use client"
 
-import { useState } from "react"
 import {
   SidebarTrigger
 } from "@/components/ui/sidebar"
 import * as React from "react"
+import { useState } from "react"
 
 import {
   BookOpen,
   Bot,
   Frame,
-
   Map,
   PieChart,
   Settings2,
-  SquareTerminal,
+  SquareTerminal
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
 import { NavProjects } from "@/components/nav-projects"
 // import { NavCustomers } from "./nav-customers"
+import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog'
 import {
   Sidebar,
   SidebarContent,
@@ -27,34 +27,10 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
-import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog'
-import LeadData from "./LeadData"
+import { Data } from "@/types/sidebat"
 import AgentData from "./AgentData"
+import LeadData from "./LeadData"
 
-
-interface NavItem {
-  title: string;
-  url?: string;
-  icon?: any; // Replace 'any' with the actual type of the icon
-  isActive?: boolean;
-  items?: NavItem[];
-}
-
-// Define the structure for projects, customers, and sales items
-interface Item {
-  name: string;
-  url: string;
-  icon: any; // Replace 'any' with the actual type of the icon
-  onClick?: () => void;
-}
-
-// Define the main data structure
-interface Data {
-  navMain: NavItem[];
-  projects: Item[];
-  customers: Item[];
-  sales: Item[];
-}
 
 
 

@@ -11,16 +11,12 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar"
+import { Item } from "@/types/sidebat"
 
 export function NavProjects({
   projects,
 }: {
-  projects: {
-    name: string
-    url: string
-    icon: LucideIcon
-    onClick: () => any
-  }[]
+  projects: Item[]
 }) {
   // const { isMobile } = useSidebar()
 
