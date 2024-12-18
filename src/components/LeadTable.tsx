@@ -28,7 +28,7 @@ export default function LeadsTable() {
   const handleSort = (key: keyof typeof mockLeads[0]) => {
     setSortedColumns(prev => {
       const currentValues = getColumnValues(key);
-      let direction = prev[key].direction === 'asc' ? 'desc' : 'asc';
+      const direction = prev[key].direction === 'asc' ? 'desc' : 'asc';
       
       // Sort the values for this column only
       const sortedValues = [...currentValues].sort((a, b) => {

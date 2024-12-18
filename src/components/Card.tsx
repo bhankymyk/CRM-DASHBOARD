@@ -9,7 +9,7 @@ type CardProps = {
   icon: React.ReactNode; // For the left icon
 };
 
-const ActivityCard = ({ title, subtitle, description, icon }: CardProps) => {
+const ActivityCard = ({ title, subtitle,  icon }: CardProps) => {
   return (
     <div className="flex items-center justify-between p-2 mb-2 bg-white border rounded-lg shadow-sm hover:shadow-md">
       {/* Left Section */}

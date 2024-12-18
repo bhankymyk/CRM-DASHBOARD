@@ -7,12 +7,10 @@ import {
 import * as React from "react"
 
 import {
-  AudioWaveform,
   BookOpen,
   Bot,
-  Command,
   Frame,
-  GalleryVerticalEnd,
+
   Map,
   PieChart,
   Settings2,
@@ -21,7 +19,7 @@ import {
 
 import { NavMain } from "@/components/nav-main"
 import { NavProjects } from "@/components/nav-projects"
-import { NavCustomers } from "./nav-customers"
+// import { NavCustomers } from "./nav-customers"
 import {
   Sidebar,
   SidebarContent,
@@ -29,7 +27,7 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
-import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog'
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 import LeadData from "./LeadData"
 import AgentData from "./AgentData"
 
@@ -73,12 +71,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     setIsDialogOpen1(true);  
   };
 
-  const closeDialog = () => {
-    setIsDialogOpen(false);  
-  };
-  const closeDialog1 = () => {
-    setIsDialogOpen1(false);  
-  };
+  // const closeDialog = () => {
+  //   setIsDialogOpen(false);  
+  // };
+  // const closeDialog1 = () => {
+  //   setIsDialogOpen1(false);  
+  // };
 
   // This is sample data.
 const data:Data = {

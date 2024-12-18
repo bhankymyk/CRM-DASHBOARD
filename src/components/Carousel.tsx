@@ -45,10 +45,6 @@ const cardData = [
 export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev === 0 ? cardData.length - 1 : prev - 1));
-  };
-
   const goToNext = () => {
     setCurrentIndex((prev) => (prev === cardData.length - 1 ? 0 : prev + 1));
   };
