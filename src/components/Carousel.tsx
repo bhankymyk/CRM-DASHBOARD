@@ -58,7 +58,7 @@ export default function Carousel() {
             {cardData.slice(currentIndex, currentIndex + 2).map((card, index) => (
               <div
                 key={index}
-                className="max-w-[25rem] px-2 "
+                className="max-w-[25rem] pr-2 transform scale-100 transition-transform duration-500 hover:scale-105"
               >
                     <div className="bg-white rounded-lg shadow-lg p-4 mb-5">
                         <div className="flex flex-row">

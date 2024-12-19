@@ -9,7 +9,6 @@ import { useState } from "react"
 import {
   Accessibility,
   Book,
-  Frame,
   Home,
   LayoutDashboard,
   ListOrderedIcon,
@@ -36,9 +35,10 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar"
-import { Data } from "@/types/sidebat"
+import { Data } from "@/types/sidebar"
 import AgentData from "./AgentData"
 import LeadData from "./LeadData"
+import { NavSubmain } from "./nav-submain"
 
 
 
@@ -63,18 +63,34 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   //   setIsDialogOpen1(false);  
   // };
 
-  // This is sample data.
+
 const data:Data = {
   navMain: [
     {
       title: "Home",
       icon: Home,
   },
+  ],
+  navSubmain: [
     {
       title: "Recent",
       url: "#",
       icon: SquareTerminal,
       isActive: true,
+      items: [
+        {
+          title: "Dropdown",
+          url: "#",
+        },
+        {
+          title: "Dropdown1",
+          url: "#",
+        },
+        {
+          title: "Dropdown2",
+          url: "#",
+        },
+      ],
     },
     {
       title: "Pinned",
@@ -171,27 +187,24 @@ const data:Data = {
         <div className="flex">
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        {/* <TeamSwitcher teams={data.teams} /> */}
         <SidebarTrigger className="-ml-1" />
-
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
+          <NavMain items={data.navMain} />
+          <NavSubmain items={data.navSubmain}/>
           <NavProjects projects={data.projects} />
         <NavSales sales={data.sales} />
           <NavCustomers customers={data.customers} />
       </SidebarContent>
       <SidebarFooter>
-        {/* <NavUser user={data.user} /> */}
       </SidebarFooter>
       <SidebarRail />
       </Sidebar>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="max-w-[60rem]">
+        <DialogContent className="lg:max-w-[60rem] max-w-[45rem]:">
           <DialogTitle className="flex gap-2"> <MailCheckIcon color="blue"/> Engage with Jane Reyes</DialogTitle>
           <DialogDescription>
-
             <LeadData />
           </DialogDescription>
         </DialogContent>
@@ -199,11 +212,12 @@ const data:Data = {
       <div className="div">
         
       <Dialog open={isDialogOpen1} onOpenChange={setIsDialogOpen1}>
-        <DialogContent className="max-w-[60rem]">
-          <DialogTitle></DialogTitle>
+        <DialogContent className="lg:max-w-[60rem] max-w-[45rem]">
+            <DialogTitle>
             <DialogDescription>
               <AgentData/>
           </DialogDescription>
+          </DialogTitle>
         </DialogContent>
       </Dialog>
 </div>

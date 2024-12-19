@@ -65,16 +65,18 @@ export default function LeadsTable() {
   return (
     <div className="">
       {/* Search Input */}
+      <div className="relative">
       <input
         type="text"
         placeholder="Sort, filter and search with Copilot"
-        className="relative w-1/2 p-3 mb-4 border rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-blue-300"
+        className="w-1/2 p-3 mb-4 border rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-blue-300"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <div className="absolute lg:top-[7.5rem] lg:left-[30rem] top-[10.5rem] left-[12.5rem]">
+      <div className="absolute lg:top-[10px] lg:left-[29rem] top-[.5rem] left-[12rem]">
  <Image src="/images/copilot.svg" width={25} height={25} className="mr-2" alt="co" />
       </div>
+        </div>
 
       {/* Leads Table */}
       <div className="overflow-x-auto">
@@ -102,7 +104,7 @@ export default function LeadsTable() {
           <tbody>
             {filteredLeads.map((_, rowIndex) => (
               <tr key={rowIndex} className="border-t">
-                <td className="px-4 py-2">{getColumnValues("name")[rowIndex]}</td>
+                <td className="px-4 py-2"><span><input type="checkbox" name="" id="" className="mr-2" /></span> {getColumnValues("name")[rowIndex]}</td>
                 <td className="px-4 py-2">{getColumnValues("topic")[rowIndex]}</td>
                 <td className="px-4 py-2">{getColumnValues("status")[rowIndex]}</td>
                 <td className="px-4 py-2">{getColumnValues("created")[rowIndex]}</td>

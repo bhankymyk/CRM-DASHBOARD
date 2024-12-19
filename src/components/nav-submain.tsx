@@ -1,6 +1,7 @@
 "use client"
 
 import {  type LucideIcon } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 
 import {
   Collapsible,
@@ -18,7 +19,7 @@ import {
 } from "@/components/ui/sidebar"
 import { NavItem } from "@/types/sidebar"
 
-export function NavMain({
+export function NavSubmain({
   items,
 }: {
   items:NavItem[]
@@ -39,7 +40,7 @@ export function NavMain({
                 <SidebarMenuButton tooltip={item.title}>
                   {item.icon && <item.icon />}
                   <span>{item.title}</span>
-                  {/* <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" /> */}
+                  <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                 </SidebarMenuButton>
               </CollapsibleTrigger>
               <CollapsibleContent>

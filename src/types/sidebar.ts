@@ -21,6 +21,7 @@ export interface NavItem {
   // Define the main data structure
  export interface Data {
     navMain: NavItem[];
+    navSubmain: NavItem[];
     projects: Item[];
     customers: Item[];
     sales: Item[];

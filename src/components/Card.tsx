@@ -1,4 +1,3 @@
-import React from "react";
 
 type CardProps = {
   title: string;
@@ -12,12 +11,11 @@ type CardProps = {
 const ActivityCard = ({ title, subtitle,  icon }: CardProps) => {
   return (
     <div className="flex items-center justify-between p-2 mb-2 bg-white border rounded-lg shadow-sm hover:shadow-md">
-      {/* Left Section */}
       <div className="flex items-center">
         {icon}
         <div className="ml-3">
-          <h4 className="font-semibold text-gray-800 text-[10px]">{title}</h4>
-          <p className="text-[10px] text-gray-500">{subtitle}</p>
+          <h4 className="font-bold text-black text-[10px]">{title}</h4>
+          <p className="text-[10px] text-black">{subtitle}</p>
         </div>
       </div>
 
