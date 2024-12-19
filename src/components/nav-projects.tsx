@@ -22,24 +22,18 @@ export function NavProjects({
 
   return (
     <SidebarGroup className="group-data-[collapsible=icon]:hidden">
-      <SidebarGroupLabel>My Works</SidebarGroupLabel>
+      <SidebarGroupLabel className="font-medium text-black text-sm" >My Works</SidebarGroupLabel>
       <SidebarMenu>
-        {projects.map((item) => (
+      {projects.map((item) => (
           <SidebarMenuItem key={item.name}>
-            <SidebarMenuButton
-              
-              asChild>
-              <button
-                 onClick={ () => item.onClick  ? item?.onClick?.() : null}
-                className="border-0 outline-none flex items-center"> 
+            <SidebarMenuButton asChild>
+              <a href={item.url}>
                 <item.icon />
                 <span>{item.name}</span>
-              </button>
+              </a>
             </SidebarMenuButton>
-
-          </SidebarMenuItem>
-        ))}
-      </SidebarMenu>
+                    </SidebarMenuItem>
+        ))}      </SidebarMenu>
     </SidebarGroup>
   )
 }

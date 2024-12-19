@@ -1,5 +1,6 @@
-import { ChevronDown, ChevronUp, User } from "lucide-react";
-import React, { useState } from "react";
+import { BookAIcon, ChevronDown, ChevronUp, Copy, User } from "lucide-react";
+import { useState } from "react";
+import Image from "next/image";
 
 export default function AgentData() {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,11 +10,11 @@ export default function AgentData() {
   };
   return (
     <div className="mt-5">
-      <h1 className="font-semibold text-lg text-black">Agent skill</h1>
+      <h1 className="font-semibold text-lg text-black flex"> <Image src="/images/copilot.svg" width={25} height={25} className="mr-2" alt="co" /> Agent skill</h1>
 
       <div className="rounded-lg border border-gray-300 p-4 mt-4">
         <div className="flex justify-between">
-          <p>
+          <p className="text-black font-medium text-base">
             Check if on-hand inventory will allow all sales orders to ship
             without delay
           </p>
@@ -23,7 +24,7 @@ export default function AgentData() {
         </div>
         {isVisible && (
           <div className="div">
-            <p className="font-normal text-base space-y-4   whitespace-nowrap">
+            <p className="font-normal text-base space-y-4  text-black  whitespace-nowrap">
               When{" "}
               <span className="inline-flex bg-blue-100 text-blue-300 px-2 py-1 rounded-full w-32">
                 {" "}
@@ -32,7 +33,7 @@ export default function AgentData() {
               send an email with changes to{" "}
               <span className="inline-flex flex-row bg-blue-100 text-blue-300 px-2 py-1 rounded-full w-min-fit">
                 {" "}
-                <User size={20} className="mr-1" />
+                <BookAIcon size={20} className="mr-1" />
                 confirmed purchase orders,
               </span>
               check if the resulting{" "} <br />
@@ -43,7 +44,7 @@ export default function AgentData() {
               will allow
               <span className="inline-flex flex-row bg-blue-100 text-blue-300 px-2 py-1 rounded-full w-min-fit">
                 {" "}
-                <User size={20} className="mr-1" /> all sales orders
+                <Copy size={20} className="mr-1" /> all sales orders
               </span>{" "}
               to{" "}
               <span className="inline-flex flex-row bg-blue-100 text-blue-300 px-2 py-1 rounded-full w-min-fit">
@@ -61,13 +62,17 @@ export default function AgentData() {
         )}
           </div>
           <div className="mt-5">
-              <p className="font-bold text-lg text-black">Enable email access</p>
+              <p className="font-bold text-lg text-black flex"> <Image src="/images/outlook.svg" width={25} height={25} className="mr-2" alt="co" /> Enable email access</p>
               <p className="mt-3">Allow the agent to access the email inboxes to read email from unknown vendors </p>
               <div className="flex justify-between gap-5 mt-3">
                   <input type="text"  placeholder="" className="border border-gray-100 w-full rounded-lg" />
                   <button className="bg-blue-500 text-white px-3 py-2 rounded-lg whitespace-nowrap">Allow access</button>
          </div>
-          </div>
+      </div>
+      <div className="justify-self-end space-x-5 mt-32">
+        <button className=" bg-gray-200 border-3 border-gray-100 text-gray-100 px-3 py-2 rounded-lg font-semibold text-base">Activate</button>
+        <button className="border-2 border-gray-100 bg-white text-black px-3 py-2 rounded-lg font-semibold text-base">Close</button>
+      </div>
     </div>
   );
 }

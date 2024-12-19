@@ -1,12 +1,18 @@
 import { useState } from "react";
 import Image from "next/image";
+import { ChevronDown, ChevronUp, Edit2, Loader2Icon, LoaderIcon, MedalIcon, Send } from "lucide-react";
 
 export default function LeadData() {
   const [activeButton, setActiveButton] = useState(1)
+  const [isVisible, setIsVisible] = useState(false)
+
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible)
+  }
 
   return (
     <div>
-      <div className="shadow-sm p-4 rounded-lg border-2">
+      <div className="shadow-sm p-4 rounded-lg border">
 
       <div className="flex flex-row">
         <Image
@@ -25,31 +31,37 @@ export default function LeadData() {
       <div className="mt-5">
         <div className="flex justify-between bg-blue-50 p-4 rounded-lg">
           <div className="mr-10 whitespace-nowrap">
-            <p className="text-sm">Jane maybe interested in upgrading expresso machines for her in-store coffee shop</p>
+            <p className="text-sm font-normal text-purple-400">Jane maybe interested in upgrading expresso machines for her in-store coffee shop</p>
 </div>
           <div className="flex space-x-2">
-            <p>Edit</p>
-            <p>Approve</p>
+            <div className="flex p-2 bg-white rounded-sm">
+              <Edit2 color="blue" size={15} className="mr-1 mt-1" />
+            <p className="text-blue-600 text-sm font-normal">Edit</p>
+            </div>
+            <div className="flex p-2 bg-purple-600 rounded-sm">
+<Send color="white" size={20} className="mr-1"/>
+            <p className="text-white text-sm font-normal">Approve and send</p>
+            </div>
 </div>
         </div>
       </div>
       <div className="flex space-x-10  mt-2 shadow-sm  rounded-lg p-2">
            <button onClick={() => setActiveButton(1)}
               className={`font-medium text-lg ${
-                activeButton === 1 ? "underline text-blue-800 font-bold text-base" : "text-black"
+                activeButton === 1 ? "underline text-purple-800 font-bold text-base" : "text-black"
               } hover:bg-blue-200`}>  
               Engage
                   </button>
                   <button onClick={() => setActiveButton(2)}
               className={`font-medium text-lg ${
-                activeButton === 2 ? "underline text-blue-800 font-bold text-base" : "text-black"
+                activeButton === 2 ? "underline text-purple-800 font-bold text-base" : "text-black"
               } hover:bg-blue-200`}> 
               Search
                   </button>
       </div>
       {activeButton === 1 && (
         <div className="p-4 bg-blue-100 mt-3 rounded-lg">
-          <p className="font-bold text-base">Click on search to see it content</p>
+          <p className="font-bold text-base text-black">Click on SEARCH to see it content</p>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odio officia ducimus, debitis veritatis accusantium magni! In natus ipsa maiores quo?</p>
         </div>
       )}
@@ -57,7 +69,7 @@ export default function LeadData() {
       {activeButton === 2 && (
 
         <div className="p-4 bg-blue-100 mt-3 rounded-lg">
-        <h1 className="text-blue-500 text-base">Why i picked this lead</h1>
+        <h1 className="text-purple-500 text-base">Why i picked this lead</h1>
         <ul className="list-disc p-5">
           <li className="whitespace-nowrap">Jane is a <span className="font-bold">Key decision maker and was browsing </span>and was browsing<span className="font-bold">"expresso machine"</span>on First's coffee website</li>
           <li>Multiple people at her company have reported 'slowness' <span>servive requests</span></li>
@@ -66,13 +78,7 @@ export default function LeadData() {
         <div className="flex gap-5">
       <div className="shadow-md p-4 rounded-lg bg-white w-[13rem]">
       <div className="flex flex-row">
-        <Image
-          src="/images/pic-person-03.jpeg"
-          width={30}
-          height={30}
-          className="rounded-full"
-          alt="dp"
-          />
+                <LoaderIcon size={50} color="green"/>
         <div className="flex-col ml-3">
           <h3 className="text-base font-normal text-gray-600">Decision Maker</h3>
           <p className="text-base text-gray-900 font-semibold">Yes</p>
@@ -82,13 +88,8 @@ export default function LeadData() {
 
           <div className="shadow-md p-4 rounded-lg bg-white w-[15rem]">
       <div className="flex flex-row">
-        <Image
-          src="/images/pic-person-03.jpeg"
-          width={30}
-          height={30}
-          className="rounded-full"
-          alt="dp"
-          />
+                <MedalIcon color="yellow" className="" size={50}/>
+        
         <div className="flex-col ml-3">
           <h3 className="text-base font-normal text-gray-600">Potential deal value</h3>
           <p className="text-base text-gray-900 font-semibold">$1m</p>
@@ -98,13 +99,7 @@ export default function LeadData() {
 
           <div className="shadow-md p-4 rounded-lg bg-white w-[13rem]">
       <div className="flex flex-row">
-        <Image
-          src="/images/pic-person-03.jpeg"
-          width={30}
-          height={30}
-          className="rounded-full"
-          alt="dp"
-          />
+                <Loader2Icon size={50} color="purple"/>
         <div className="flex-col ml-3">
           <h3 className="text-base font-normal text-gray-600">Intent</h3>
           <p className="text-base text-gray-900 font-semibold">High</p>
@@ -115,9 +110,16 @@ export default function LeadData() {
       </div>
 
       ) }
-      <div className="border-2 border-gray-100 mt-5 p-4 rounded-lg shadow-sm">
-        <h1>About Jane</h1>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati est blanditiis ducimus quasi, laborum voluptas hic. Harum iure itaque iusto minima exercitationem cum odio dolorum cumque asperiores perferendis. Mollitia, neque!</p>
+      <div className="border-2 border-gray-100 mt-5 p-4 rounded-xl shadow-lg">
+        <div className="flex justify-between">
+        <h1 className="text-black font-semibold text-base">About Jane</h1>
+         <button onClick={toggleVisibility}> {isVisible ? <ChevronUp/> : <ChevronDown/> }
+          </button>
+        </div>
+        {isVisible && (
+
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium voluptatem iste nisi eum cumque quae ex maiores non! Tenetur quibusdam ullam dolor aliquid accusamus distinctio amet blanditiis, beatae nostrum repellat voluptate doloribus aliquam laboriosam corporis dolores quae earum impedit hic totam ad nihil magni fugit eaque. Dolores rem corporis dolorum asperiores est aliquam laboriosam nisi illo pariatur ipsa, cumque sunt libero! Perspiciatis veniam accusamus omnis obcaecati soluta earum aspernatur aut qui. Dolor ullam molestiae itaque repudiandae, sed aliquam provident expedita.</p>
+        )}
       </div>
     </div>
   );

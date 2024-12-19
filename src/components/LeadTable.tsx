@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { mockLeads } from "../app/utils/MockData";
+import { mockLeads } from "../utils/MockData";
+import Image from "next/image";
 
 export default function LeadsTable() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -53,12 +54,12 @@ export default function LeadsTable() {
     const direction = sortedColumns[key].direction;
     if (direction) {
       return direction === "asc" ? (
-        <span className="ml-2 text-blue-500 cursor-pointer">&#9650;</span>
+        <span className="ml-2 text-gray-500 cursor-pointer">&#9650;</span>
       ) : (
-        <span className="ml-2 text-blue-500 cursor-pointer">&#9660;</span>
+        <span className="ml-2 text-gray-500 cursor-pointer">&#9660;</span>
       );
     }
-    return <span className="ml-2 text-gray-400 cursor-pointer">&#x21C5;</span>;
+    return <span className="ml-2 text-gray-500 cursor-pointer">&#x21C5;</span>;
   };
 
   return (
@@ -67,10 +68,13 @@ export default function LeadsTable() {
       <input
         type="text"
         placeholder="Sort, filter and search with Copilot"
-        className="w-full p-3 mb-4 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-300"
+        className="relative w-1/2 p-3 mb-4 border rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-blue-300"
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
+      <div className="absolute lg:top-[7.5rem] lg:left-[30rem] top-[10.5rem] left-[12.5rem]">
+ <Image src="/images/copilot.svg" width={25} height={25} className="mr-2" alt="co" />
+      </div>
 
       {/* Leads Table */}
       <div className="overflow-x-auto">

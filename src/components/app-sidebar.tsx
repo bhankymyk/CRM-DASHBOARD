@@ -7,18 +7,27 @@ import * as React from "react"
 import { useState } from "react"
 
 import {
-  BookOpen,
-  Bot,
+  Accessibility,
+  Book,
   Frame,
+  Home,
+  LayoutDashboard,
+  ListOrderedIcon,
+  MailCheckIcon,
   Map,
+  PhoneCall,
   PieChart,
-  Settings2,
-  SquareTerminal
+  Pin,
+  Projector,
+  Quote,
+  SquareTerminal,
+  User2
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
 import { NavProjects } from "@/components/nav-projects"
-// import { NavCustomers } from "./nav-customers"
+import { NavSales } from "./nav-sales"
+import { NavCustomers } from "./nav-customers"
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from '@/components/ui/dialog'
 import {
   Sidebar,
@@ -56,43 +65,21 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
   // This is sample data.
 const data:Data = {
-  // user: {
-  //   name: "shadcn",
-  //   email: "m@example.com",
-  //   avatar: "/avatars/shadcn.jpg",
-  // },
-  // teams: [
-  //   {
-  //     name: "Acme Inc",
-  //     logo: GalleryVerticalEnd,
-  //     plan: "Enterprise",
-  //   },
-  //   {
-  //     name: "Acme Corp.",
-  //     logo: AudioWaveform,
-  //     plan: "Startup",
-  //   },
-  //   {
-  //     name: "Evil Corp.",
-  //     logo: Command,
-  //     plan: "Free",
-  //   },
-  // ],
   navMain: [
     {
       title: "Home",
-      icon: SquareTerminal,
+      icon: Home,
   },
     {
-      title: "Homes",
+      title: "Recent",
       url: "#",
       icon: SquareTerminal,
       isActive: true,
     },
     {
-      title: "Models",
+      title: "Pinned",
       url: "#",
-      icon: Bot,
+      icon: Pin,
       items: [
         {
           title: "Genesis",
@@ -108,63 +95,17 @@ const data:Data = {
         },
       ],
     },
-    {
-      title: "Documentation",
-      url: "#",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
-    },
   ],
   projects: [
     {
       name: "Sales accelerator",
       url: "#",
-      icon: Frame,
+      icon: Accessibility,
     },
     {
       name: "Dashboard",
       url: "#",
-      icon: PieChart,
+      icon: LayoutDashboard,
     },
     {
       name: "Activities",
@@ -174,12 +115,27 @@ const data:Data = {
   ],
   customers: [
     {
-      name: "Account",
+      name: "Quotes",
       url: "#",
-      icon: Frame,
+      icon: Quote,
     },
     {
-      name: "Contacts",
+      name: "Orders",
+      url: "#",
+      icon: ListOrderedIcon,
+    },
+        {
+      name: "Invoices",
+      url: "#",
+      icon: PieChart,
+    },
+    {
+      name: "Products",
+      url: "#",
+      icon: Projector,
+    },
+    {
+      name: "Sales Literature",
       url: "#",
       icon: PieChart,
     },
@@ -188,18 +144,18 @@ const data:Data = {
     {
       name: "Lead",
       url: "",
-      icon: Frame,
+      icon: PhoneCall,
       onClick:handleLeadClick
     },
     {
       name: "opportunities",
       url: "#",
-      icon: PieChart,
+      icon: Book,
     },
     {
       name: "Competitors",
       url: "#",
-      icon: PieChart,
+      icon: User2,
     },
     {
       name: "Agent Skills",
@@ -221,9 +177,9 @@ const data:Data = {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavProjects projects={data.sales} />
           <NavProjects projects={data.projects} />
-          <NavProjects projects={data.customers} />
+        <NavSales sales={data.sales} />
+          <NavCustomers customers={data.customers} />
       </SidebarContent>
       <SidebarFooter>
         {/* <NavUser user={data.user} /> */}
@@ -233,7 +189,7 @@ const data:Data = {
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="max-w-[60rem]">
-          <DialogTitle>Engage with Jane Reyes</DialogTitle>
+          <DialogTitle className="flex gap-2"> <MailCheckIcon color="blue"/> Engage with Jane Reyes</DialogTitle>
           <DialogDescription>
 
             <LeadData />

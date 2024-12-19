@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import Carousel from "../components/Carousel"
 import { AppSidebar } from "@/components/app-sidebar"
 
@@ -28,7 +29,7 @@ export default  function Page() {
                <div className="flex flex-1 flex-col gap-4 p-4 ">
           <div className="flex flex-col  rounded-xl bg-white shadow-lg border-2 border-blue-500 p-4">
             <div className="flex justify-between ">
-            <p className='font-bold text-base'>Hi Mona, <span className='text-blue-500'>68%</span>of goal achieved and rest can be achieved by focusing on 20 top leads </p>
+            <p className='font-bold text-base flex'> <Image src="/images/copilot.svg" width={25} height={25} className="mr-2" alt="co" /> Hi Mona, <span className='text-blue-500'>68%</span>of goal achieved and rest can be achieved by focusing on 20 top leads </p>
               <button onClick={toggleVisibility} >
               {isVisible ?  <ChevronUp />  : <ChevronDown/> }
            </button>
