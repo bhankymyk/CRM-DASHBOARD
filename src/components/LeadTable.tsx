@@ -104,7 +104,7 @@ export default function LeadsTable() {
           <tbody>
             {filteredLeads.map((_, rowIndex) => (
               <tr key={rowIndex} className="border-t">
-                <td className="px-4 py-2"><span><input type="checkbox" name="" id="" className="mr-2" /></span> {getColumnValues("name")[rowIndex]}</td>
+                <td className="px-4 py-2 text-blue-500"><span><input type="checkbox" name="" id="" className="mr-2" /></span> {getColumnValues("name")[rowIndex]}</td>
                 <td className="px-4 py-2">{getColumnValues("topic")[rowIndex]}</td>
                 <td className="px-4 py-2">{getColumnValues("status")[rowIndex]}</td>
                 <td className="px-4 py-2">{getColumnValues("created")[rowIndex]}</td>
