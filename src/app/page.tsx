@@ -36,7 +36,7 @@ export default function Page() {
                   className="mr-2 mt-[-27px] "
                   alt="co"
                 />{" "}
-                Hi Mona,<span className="text-blue-500">68%</span>of goal
+                Hi Mona,<span className="text-blue-500">68% </span>of goal
                 achieved and rest can be achieved by focusing on 20 top leads{" "}
               </p>
               <div className="lg:mt-0 mt-7">
