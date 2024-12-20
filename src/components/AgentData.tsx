@@ -76,9 +76,12 @@ export default function AgentData() {
           <X className="ml-2" size={20}/>
         </div>
       </div>
-      <div className="justify-self-end space-x-5 mt-32">
+      <div className="flex justify-between space-x-5 mt-32">
+        <div className="div"></div>
+        <div className="space-x-5">
         <button className=" bg-gray-200 border-3 border-gray-100 text-gray-100 px-3 py-2 rounded-lg font-semibold text-base">Activate</button>
         <button className="border-2 border-gray-100 bg-white text-black px-3 py-2 rounded-lg font-semibold text-base">Close</button>
+        </div>
       </div>
     </div>
   );
